@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="16sp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="204dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/gorilla_quiz_title"
+            android:src="@drawable/primate" />
+
+        <TextView
+            style="@style/QuestionTitleTextStyle"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="@string/gorilla_quiz" />
+
+
+        <TextView
+            style="@style/QuestionTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="@string/question_one" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/quest_one_squad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/squads" />
+
+            <RadioButton
+                android:id="@+id/quest_one_troop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/troops" />
+
+            <RadioButton
+                android:id="@+id/quest_one_gang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gangs" />
+        </RadioGroup>
+
+        <View style="@style/Separator" />
+
+        <TextView
+            style="@style/QuestionTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="@string/question_two" />
+
+        <EditText
+            android:id="@+id/answer_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_text_response"
+            android:inputType="textCapCharacters" />
+
+        <View style="@style/Separator" />
+
+        <TextView
+            style="@style/QuestionTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="@string/question_3" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/question_age_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/years_response_one" />
+
+            <RadioButton
+                android:id="@+id/question_age_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/years_response_two" />
+
+            <RadioButton
+                android:id="@+id/question_age_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/years_response_three" />
+        </RadioGroup>
+
+        <View style="@style/Separator" />
+
+        <TextView
+            style="@style/QuestionTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="@string/question_four" />
+
+        <CheckBox
+            android:id="@+id/question_four_humans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/humans" />
+
+        <CheckBox
+            android:id="@+id/question_four_earthquakes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/earthquakes" />
+
+        <CheckBox
+            android:id="@+id/question_four_other_gorillas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/other_gorillas" />
+
+        <View style="@style/Separator" />
+
+        <TextView
+            android:id="@+id/total_score"
+            style="@style/QuestionTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="@string/total_score" />
+
+        <View
+            style="@style/Separator"
+            android:layout_margin="0dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:onClick="getAnswers"
+            android:text="@string/button_text" />
+
+
+    </LinearLayout>
+
+</ScrollView>

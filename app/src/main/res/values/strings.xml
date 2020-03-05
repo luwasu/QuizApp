@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="gorilla_quiz_title">Gorilla Quiz Title</string>
+    <string name="gorilla_quiz">Gorilla Quiz</string>
+    <string name="question_one">Gorillas live in groups which are properly called ......?</string>
+    <string name="squads">Squads</string>
+    <string name="troops">Troops</string>
+    <string name="gangs">Gangs</string>
+    <string name="question_two">What is an Adult male Gorilla called?</string>
+    <string name="edit_text_response">Type your answer here...</string>
+    <string name="question_3">What is the typical lifespan of a wild gorilla?</string>
+    <string name="years_response_one">about 15 years</string>
+    <string name="years_response_two">about 25 years</string>
+    <string name="years_response_three">about 35 years</string>
+    <string name="question_four">What is NOT the greatest threat to the wild gorilla populations?</string>
+    <string name="humans">Humans</string>
+    <string name="earthquakes">Earthquakes</string>
+    <string name="other_gorillas">Other Gorillas</string>
+    <string name="total_score">Click the button to see your score!</string>
+    <string name="button_text">Check Answers</string>
+    <string name="display_score_part_one">\You got \</string>
+    <string name="display_score_part_two">\ out of 5 Points!\</string>
+</resources>
