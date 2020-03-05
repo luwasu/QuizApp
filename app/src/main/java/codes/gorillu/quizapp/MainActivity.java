@@ -6,6 +6,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method
+     * This method checks the status of the responses
      */
 
     public void getAnswers(View view) {
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         int score = checkAnswers(isTroops, answer, isAgeThree, isEarthquakes, isOtherGorillas);
 
-        displayScore(getString(R.string.display_score_part_one) + score + getString(R.string.display_score_part_two));
+        displayScore(getString(R.string.display_score_part_one) + score + getString(R.string.display_score_part_two), score);
 
     }
 
@@ -109,9 +110,10 @@ public class MainActivity extends AppCompatActivity {
      */
 
 
-    private void displayScore(String message) {
+    private void displayScore(String message, int score) {
         TextView scoreTextView = findViewById(R.id.total_score);
         scoreTextView.setText(message);
+        Toast.makeText(this, "Your total score is " + score, Toast.LENGTH_LONG).show();
     }
 
 
