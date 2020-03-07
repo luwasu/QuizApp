@@ -17,13 +17,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    int score;
+
+    private int answerOneId;
+    private int answerTwoId;
+    private int answerThreeId;
+    private int answerFourFirstId;
+    private int answerFourSecondId;
+    private int answerFourThirdId;
+    private int displayMessageId;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Retrieve all View ID`s to make the the application more efficient
+        answerOneId = R.id.quest_one_troop;
+        answerTwoId = R.id.answer_field;
+        answerThreeId = R.id.question_age_three;
+        answerFourFirstId = R.id.question_four_humans;
+        answerFourSecondId = R.id.question_four_earthquakes;
+        answerFourThirdId = R.id.question_four_other_gorillas;
+        displayMessageId = R.id.total_score;
+
     }
 
     /**
@@ -33,37 +50,36 @@ public class MainActivity extends AppCompatActivity {
     public void getAnswers(View view) {
 
         // Get answers for question one
-
-        RadioButton troopsRadioButton = findViewById(R.id.quest_one_troop);
+        RadioButton troopsRadioButton = findViewById(answerOneId);
         boolean isTroops = troopsRadioButton.isChecked();
 
-
         // Get answers for question two
-        EditText answerField = findViewById(R.id.answer_field);
-        String answer = answerField.getText().toString();
-
+        EditText answerField = findViewById(answerTwoId);
+        String answer = answerField.getText().toString().trim();
 
         // Get answers for question three
-
-        RadioButton ageThreeRadioButton = findViewById(R.id.question_age_three);
+        RadioButton ageThreeRadioButton = findViewById(answerThreeId);
         boolean isAgeThree = ageThreeRadioButton.isChecked();
 
-
         // Get answers for question four
-        CheckBox earthquakesCheckBox = findViewById(R.id.question_four_earthquakes);
-        boolean isEarthquakes = earthquakesCheckBox.isChecked();
-
-        CheckBox otherGorillasCheckBox = findViewById(R.id.question_four_other_gorillas);
-        boolean isOtherGorillas = otherGorillasCheckBox.isChecked();
-
-        CheckBox humansCheckBox = findViewById(R.id.question_four_humans);
+        CheckBox humansCheckBox = findViewById(answerFourFirstId);
         boolean isHumansChecked = humansCheckBox.isChecked();
 
+        CheckBox earthquakesCheckBox = findViewById(answerFourSecondId);
+        boolean isEarthquakes = earthquakesCheckBox.isChecked();
+
+        CheckBox otherGorillasCheckBox = findViewById(answerFourThirdId);
+        boolean isOtherGorillas = otherGorillasCheckBox.isChecked();
+
+
+        // set score variable to be passed to displayScore
         int score = checkAnswers(isTroops, answer, isAgeThree, isHumansChecked, isEarthquakes, isOtherGorillas);
 
+        // set
         displayScore(getString(R.string.display_score_part_one) + score + getString(R.string.display_score_part_two), score);
 
     }
+
 
     /**
      * @param isTroops        correct answer for question one
@@ -85,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Check if question two is correct and add score
 
-        if (answer.equalsIgnoreCase(getString(R.string.silverback_gorilla)) || answer.equals(getString(R.string.silverback))) {
+        if (answer.equalsIgnoreCase(getString(R.string.silverback_gorilla)) || answer.equalsIgnoreCase(getString(R.string.silverback))) {
             correctAnswers++;
         }
 
@@ -117,21 +133,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
-        return score + correctAnswers;
+        return correctAnswers;
     }
 
     /**
      * This method displays the total score on the screen when the button is clicked
      */
-
-
     private void displayScore(String message, int score) {
-        TextView scoreTextView = findViewById(R.id.total_score);
+        TextView scoreTextView = findViewById(displayMessageId);
         scoreTextView.setText(message);
-        Toast.makeText(this, "Your total score is " + score, Toast.LENGTH_LONG).show();
+
+        // Toast to display score for when the score button is pressed
+        Toast.makeText(this, getString(R.string.toast_message) + score, Toast.LENGTH_LONG).show();
     }
-
-
 }

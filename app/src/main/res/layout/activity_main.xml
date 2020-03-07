@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/edit_text_response"
-            android:inputType="textCapCharacters" />
+            android:inputType="textCapWords" />
 
         <View style="@style/Separator" />
 
@@ -148,7 +148,6 @@
             android:layout_marginTop="25dp"
             android:onClick="getAnswers"
             android:text="@string/button_text" />
-
 
     </LinearLayout>
 

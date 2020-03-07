@@ -22,4 +22,5 @@
     <string name="button_text">Check Answers</string>
     <string name="display_score_part_one">\You got \</string>
     <string name="display_score_part_two">\ out of 5 Points!\</string>
+    <string name="toast_message">\Your total score is \</string>
 </resources>
