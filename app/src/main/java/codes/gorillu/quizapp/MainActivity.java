@@ -56,51 +56,68 @@ public class MainActivity extends AppCompatActivity {
         CheckBox otherGorillasCheckBox = findViewById(R.id.question_four_other_gorillas);
         boolean isOtherGorillas = otherGorillasCheckBox.isChecked();
 
-        int score = checkAnswers(isTroops, answer, isAgeThree, isEarthquakes, isOtherGorillas);
+        CheckBox humansCheckBox = findViewById(R.id.question_four_humans);
+        boolean isHumansChecked = humansCheckBox.isChecked();
+
+        int score = checkAnswers(isTroops, answer, isAgeThree, isHumansChecked, isEarthquakes, isOtherGorillas);
 
         displayScore(getString(R.string.display_score_part_one) + score + getString(R.string.display_score_part_two), score);
 
     }
 
     /**
-     *
-     * @param isTroops          correct answer for question one
-     * @param answer            correct answer for question two
-     * @param isAgeThree        correct answer for question three
-     * @param isEarthquakes     correct answer for question four
-     * @param isOtherGorillas   correct answer for question four
+     * @param isTroops        correct answer for question one
+     * @param answer          correct answer for question two
+     * @param isAgeThree      correct answer for question three
+     * @param isEarthquakes   correct answer for question four
+     * @param isOtherGorillas correct answer for question four
      * @return total score for correct answered questions
      */
 
 
-    private int checkAnswers(boolean isTroops, String answer, boolean isAgeThree, boolean isEarthquakes, boolean isOtherGorillas) {
+    private int checkAnswers(boolean isTroops, String answer, boolean isAgeThree, boolean isHumansChecked, boolean isEarthquakes, boolean isOtherGorillas) {
         int correctAnswers = 0;
 
-        // Check if Question one is correct and add score
+        // Check if question one is correct and add score
         if (isTroops) {
             correctAnswers++;
         }
 
-        // Check if Question two is correct and add score
+        // Check if question two is correct and add score
 
-        if (answer.equals("SILVERBACK") || answer.equals("SILVERBACK GORILLA")) {
+        if (answer.equalsIgnoreCase(getString(R.string.silverback_gorilla)) || answer.equals(getString(R.string.silverback))) {
             correctAnswers++;
         }
 
-        // Check if Question three is correct and add score
+        // Check if question three is correct and add score
         if (isAgeThree) {
             correctAnswers++;
         }
 
-        // Check if Question four is correct
+        // Check if question four has the false answer checked
+        if (isHumansChecked) {
+            correctAnswers--;
+        }
+
+
+        // Check if question four is correct
+        if (isOtherGorillas) {
+            correctAnswers++;
+        }
+
+        // Check if question four is correct
         if (isEarthquakes) {
             correctAnswers++;
         }
 
-        // Check if Question one is correct
-        if (isOtherGorillas) {
-            correctAnswers++;
+
+        // Check if question is smaller then 0 and set it to be 0
+        if (correctAnswers <= 0) {
+            correctAnswers = 0;
         }
+
+
+
 
         return score + correctAnswers;
     }
